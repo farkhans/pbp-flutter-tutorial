@@ -213,48 +213,58 @@ class _MyFormPageState extends State<MyFormPage> {
                         secondary: const Icon(Icons.run_circle_outlined),
                       ),
                     ),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.blue),
-                      ),
-                      child: const Text(
-                        "Simpan",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return Dialog(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                elevation: 15,
-                                child: Container(
-                                  child: ListView(
-                                    padding: const EdgeInsets.only(
-                                        top: 20, bottom: 20),
-                                    shrinkWrap: true,
-                                    children: <Widget>[
-                                      Center(
-                                          child: const Text('Informasi Data')),
-                                      SizedBox(height: 20),
-                                      Text('Judul: $_namaLengkap'),
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text('Kembali'),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          height: 50,
+                          width: 100,
+                          child: TextButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            ),
+                            child: const Text(
+                              "Simpan",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              );
+                                      elevation: 15,
+                                      child: Container(
+                                        child: ListView(
+                                          padding: const EdgeInsets.only(
+                                              top: 20, bottom: 20),
+                                          shrinkWrap: true,
+                                          children: <Widget>[
+                                            Center(
+                                                child: const Text('Informasi Data')),
+                                            SizedBox(height: 20),
+                                            Center(child: Text('Nama lengkap: $_namaLengkap')),
+                                            SizedBox(height: 20),
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Text('Kembali'),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
                             },
-                          );
-                        }
-                      },
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
