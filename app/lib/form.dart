@@ -15,6 +15,7 @@ class _MyFormPageState extends State<MyFormPage> {
   bool jenjangDiploma = false;
   bool jenjangMagister = false;
   bool jenjangDoktor = false;
+  String _jenjang = "Kosong";
   double umur = 0;
   String kelasPBP = 'A';
   List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
@@ -117,6 +118,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           if (value) {
                             jenjangMagister =
                                 jenjangDiploma = jenjangDoktor = false;
+                            _jenjang = "Sarjana";
+                          } else {
+                            _jenjang = "Kosong";
                           }
                         });
                       },
@@ -130,6 +134,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           if (value) {
                             jenjangMagister =
                                 jenjangSarjana = jenjangDoktor = false;
+                            _jenjang = "Diploma";
+                          } else {
+                            _jenjang = "Kosong";
                           }
                         });
                       },
@@ -143,6 +150,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           if (value) {
                             jenjangDiploma =
                                 jenjangSarjana = jenjangDoktor = false;
+                            _jenjang = "Magister";
+                          } else {
+                            _jenjang = "Kosong";
                           }
                         });
                       },
@@ -156,6 +166,9 @@ class _MyFormPageState extends State<MyFormPage> {
                           if (value) {
                             jenjangMagister =
                                 jenjangSarjana = jenjangDiploma = false;
+                            _jenjang = "Doktor";
+                          } else {
+                            _jenjang = "Kosong";
                           }
                         });
                       },
@@ -221,7 +234,8 @@ class _MyFormPageState extends State<MyFormPage> {
                           width: 100,
                           child: TextButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.blue),
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.blue),
                             ),
                             child: const Text(
                               "Simpan",
@@ -244,9 +258,20 @@ class _MyFormPageState extends State<MyFormPage> {
                                           shrinkWrap: true,
                                           children: <Widget>[
                                             Center(
-                                                child: const Text('Informasi Data')),
+                                                child: const Text(
+                                                    'Informasi Data')),
                                             SizedBox(height: 20),
-                                            Center(child: Text('Nama lengkap: $_namaLengkap')),
+                                            Center(
+                                                child: Text(
+                                                    'Nama lengkap: $_namaLengkap')),
+                                            SizedBox(height: 20),
+                                            Center(
+                                                child:
+                                                    Text('Jenjang: $_jenjang')),
+                                            SizedBox(height: 20),
+                                            Center(
+                                                child: Text(
+                                                    'Practice mode: $_nilaiSwitch')),
                                             SizedBox(height: 20),
                                             TextButton(
                                               onPressed: () {
